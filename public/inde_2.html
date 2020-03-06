@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Kid A-Z index</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+</head>
+
+<body>
+<div id='app'>
+    <ol>
+        <li v-for="playlist in playlists">
+          {{ playlist.name }}
+        </li>
+    </ol>
+</div>
+<div id="app2">
+    <el-button @click="visible = true">Button</el-button>
+    <el-dialog :visible.sync="visible" title="Hello world">
+      <p>Try Element</p>
+    </el-dialog>
+  </div>
+</body>
+<script type="text/javascript">
+    var playlists = [
+                {
+                    name: 'RAZ_flash1',
+                    url: 'a.swf'
+                },
+                {
+                    name: 'RAZ_flash2',
+                    url: 'b.swf'
+                },
+                {
+                    name: 'S',
+                    url: 'b.swf'
+                },
+                {
+                    name: 'Song Books',
+                    url: 'b.swf'
+                }, 
+                {
+                    name: 'T',
+                    url: 'b.swf'
+                },
+                {
+                    name: 'U',
+                    url: 'b.swf'
+                },
+                {
+                    name: 'V',
+                    url: 'b.swf'
+                },
+                {
+                    name: 'W',
+                    url: 'b.swf'
+                },
+                {
+                    name: 'X',
+                    url: 'b.swf'
+                },
+                {
+                    name: 'Y',
+                    url: 'b.swf'
+                },
+                {
+                    name: 'Z',
+                    url: 'b.swf'
+                }
+            ]
+    var vm = new Vue({
+        el:'#app',
+        data: {
+            playlists: playlists
+        }
+    })
+    new Vue({
+      el: '#app2',
+      data: function() {
+        return { visible: false }
+      }
+    })
+</script>
+</html>
