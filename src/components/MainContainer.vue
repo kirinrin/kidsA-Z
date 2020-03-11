@@ -1,9 +1,9 @@
 <template>
   <el-container v-if="showType == 'list'">
-    <ListView :playlist="playlist.sub" @chnage-item="changeSubPlaylist"></ListView>
-    <MainView :playlist="playlist.sub[0].sub"></MainView>
+    <ListView :playlist="playlist.sub" @change-item="changeSubPlaylist"></ListView>
+    <MainView :playlist="sublist" :playUri="''"></MainView>
   </el-container>
-  <MainView v-else :playlist="playlist.sub"></MainView>
+  <MainView v-else :playlist="playlist.sub" :playUri="''"></MainView>
 </template>
 
 <script>
@@ -11,6 +11,11 @@ import MainView from "./MainView";
 import ListView from "./ListView";
 export default {
   name: "MainContainer",
+  data: function(){
+    return {
+      sublist: this.playlist.sub[0].sub
+    }
+  },
   props: ["playlist"],
   computed: {
     showType: function() {
@@ -28,7 +33,7 @@ export default {
   methods: {
     changeSubPlaylist: function(index) {
       console.log("click sub menu " + index);
-      // this.subPlaylist = this.playlist.sub[index].sub
+      this.sublist = this.playlist.sub[index].sub
     }
   },
   components: { ListView, MainView }

@@ -1,7 +1,9 @@
 <template>
+<el-main>
   <object>
     <embed :src="uri" width="100%" height="100%" />
   </object>
+</el-main>
 </template>
 
 <script>

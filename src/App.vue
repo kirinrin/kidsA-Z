@@ -5,7 +5,7 @@
         <span style="font-size: xx-large; color: white;">Kids A-Z</span>
       </el-header>
       <el-container style="height: 90vh;">
-        <ListView :playlist="playlist" @chnage-item="changePlaylist">
+        <ListView :playlist="playlist" @change-item="changePlaylist">
         </ListView>
         <MainContainer :playlist="subPlaylist"></MainContainer>
       </el-container>

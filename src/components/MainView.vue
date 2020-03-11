@@ -1,6 +1,6 @@
 <template>
-  <CollectionView v-if="showType == 'collection'" :playlist="playlist" ></CollectionView>
-  <SwfPlayer v-else :uri="playlist.uri"></SwfPlayer>
+  <CollectionView v-if="showType == 'collection'" :playlist="playlist" @play-swf="play"></CollectionView>
+  <SwfPlayer v-else :uri="playUri"></SwfPlayer>
 </template>
 
 <script>
@@ -8,15 +8,19 @@ import CollectionView from "./CollectionView";
 import SwfPlayer from "./SwfPlayer";
 export default {
   name: "MainView",
-  props: ["playlist"],
+  props: ["playlist", "playUri"],
+  methods:{
+    play:function(index){
+      console.log("play item " + index);
+      this.playUri = this.playlist[index].uri
+    }
+  },
   computed: {
     showType: function() {
-      var data = this.playlist;
-      if (data.sub == undefined) {
-        return "collection";
-      } else {
-        console.log("show swf player");
-        return "swf";
+      if (this.playUri == ''){
+        return "collection"
+      }else{
+        return "swf"
       }
     }
   },

@@ -5,7 +5,7 @@
         :index="index.toString()"
         :key="item.name"
         v-for="(item, index) in playlist"
-        @click="$emit('chnage-item',index)"
+        @click="$emit('change-item',index)"
       >
         <i class="el-icon-folder"></i>
         {{item.name}}
